@@ -1,0 +1,1050 @@
+.side-menu-wrapper {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+
+    transition: opacity 200ms, visibility 300ms;
+}
+
+.side-menu-wrapper.open {
+    transition: opacity 300ms;
+    visibility: visible;
+    opacity: 1;
+}
+
+.side-menu {
+    width: min(400px, 80%);
+    height: 100%;
+    background-color: #222;
+    overflow: hidden;
+
+    border-radius: 0px 10px 10px 0px;
+    transition: 350ms ease-in-out;
+    transform: translateX(-100%);
+}
+
+.open > .side-menu {
+    transform: translateX(0%);
+}
+
+.side-menu > header {
+    padding: 10px 8px 5px 10px;
+    color: #aaa;
+    justify-content: end;
+    background-color: transparent;
+}
+
+.side-menu .close-button {
+    width: 30px;
+    height: 30px;
+}
+
+.side-menu .close-button > * {
+    width: 80%;
+    height: 80%;
+}
+
+.all-folders {
+    display: flex;
+    flex-direction: column;
+    padding: 0 6px;
+}
+
+.all-folders header {
+    background-color: transparent;
+    justify-content: start;
+
+    width: 94%;
+    padding: 0 3px 10px;
+    margin: 0 8px 10px;
+    border-bottom: 2px solid #777;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+
+    color: #aaa;
+}
+
+.all-folders > .folder {
+    display: flex;
+    padding: 5px 0 2px;
+    padding-right: 6px;
+    border-radius: 9px;
+}
+
+.folder.selected {
+    background-color: #333;
+}
+
+.all-folders > .folder > .core {
+    flex: 1 1 auto;
+    padding: 4px 6px 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.all-folders > .folder > button > svg {
+    width: 24px;
+}
+
+.all-folders > .folder > button > .file-count {
+    justify-self: end;
+}
+
+.edit-folders-wrapper {
+    width: 100%;
+    padding: 10px;
+}
+
+.edit-folders {
+    width: 100%;
+    background-color: #444;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+.main {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.locked {
+    overflow: hidden;
+}
+
+header {
+    z-index: 100;
+    background-color: #111;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding: 6px 2px 9px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main > header {
+    position: sticky;
+    top: 0;
+    color: white;
+}
+
+header > .menu-button {
+    width: 2.6rem;
+    min-width: 2.6rem;
+    height: 100%;
+    flex-basis: 2.6rem;
+}
+
+header > .menu-button > svg {
+    position: absolute;
+    width: 47px;
+}
+
+header > .menu-button > svg:nth-child(1) {
+    transform: translateY(-20px);
+    transition: 300ms;
+}
+
+header > .menu-button > svg:nth-child(2) {
+    transform: translateY(-10px);
+    transition: 200ms;
+}
+
+header > .menu-button > svg:nth-child(3) {
+    transition: 300ms;
+}
+
+header > .back-button > svg:nth-child(1) {
+    transform: translateY(-10px) rotate(-45deg) scale(0.6);
+}
+
+header > .back-button > svg:nth-child(2) {
+    transform: translateY(-10px) translateX(10px) scaleX(0.1);
+    opacity: 0;
+}
+
+header > .back-button > svg:nth-child(3) {
+    transform: translateY(3px) translateX(10px) rotate(45deg) scale(0.6);
+}
+
+header > .label {
+    margin-right: auto;
+    font-size: 1.3rem;
+    font-weight: 600;
+    flex: 1 1 auto;
+}
+
+header > .search {
+    margin-right: auto;
+    font-size: 1.3rem;
+    flex: 1 1 auto;
+    border: none;
+    background: transparent;
+    min-width: 0;
+}
+
+header > .search.filled {
+    text-decoration: underline;
+}
+
+header > .search:focus {
+    outline: none;
+}
+
+header > .actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+header > .actions > * {
+    width: 1.8rem;
+}
+
+header > .actions > *:last-child {
+    width: 2rem;
+}
+
+header > .actions > *:first-child {
+    margin-right: 6px;
+}
+
+.files-menu-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.files-menu {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    width: 200px;
+
+    background-color: #282828;
+
+    padding: 10px 0;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.files-menu > button {
+    display: block;
+    text-align: left;
+    color: white;
+    font-size: 17px;
+    padding: 6px 14px;
+}
+
+.files-menu > button:hover {
+    background-color: #333;
+}
+
+.appearance-settings-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+}
+
+.appearance-settings {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    width: 200px;
+
+    background-color: #282828;
+
+    padding: 10px 0;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.appearance-settings > button {
+    display: block;
+    text-align: left;
+    color: white;
+    font-size: 17px;
+    padding: 6px 14px;
+}
+
+.appearance-settings > button:hover {
+    background-color: #343434;
+}
+
+.appearance-settings > button.selected {
+    background-color: #444;
+}
+
+.cross {
+    margin-right: 10px;
+}
+
+.files-actions {
+    width: 100%;
+    height: 24px;
+    display: flex;
+
+    padding: 0 10px;
+    margin-top: 10px;
+}
+
+.selection-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    padding: 0 8px;
+
+    color: #bbb;
+    opacity: 0;
+    visibility: hidden;
+    transition: 150ms;
+}
+
+.selection-actions.visible {
+    transition: 300ms;
+    opacity: 1;
+    visibility: visible;
+}
+
+.select-all {
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.select-all > svg {
+    color: white;
+    width: 20px;
+}
+
+.cancel-selection {
+    cursor: pointer;
+}
+
+.cancel-selection > svg {
+    width: 16px;
+}
+
+.sort-settings {
+    width: 100%;
+    height: 24px;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+
+    color: #aaa;
+}
+
+.sort-type {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+}
+
+.separator {
+    background-color: #bbb;
+    width: 1px;
+    height: 100%;
+}
+
+.sort-type > svg {
+    width: 20px;
+}
+
+.sort-order {
+    width: 20px;
+    display: flex;
+    transition: 200ms;
+}
+
+.inverted {
+    transform: rotate(180deg);
+}
+
+.sort-type-selection-wrapper {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1000;
+}
+
+.sort-type-selection {
+    position: absolute;
+
+    top: 47px;
+    right: 20px;
+
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #222;
+
+    padding: 10px 0px;
+    border-radius: 10px;
+}
+
+.sort-type-option {
+    display: block;
+    color: #bbb;
+    text-align: left;
+    font-size: 17px;
+    padding: 6px 10px;
+}
+
+.sort-type-option:hover {
+    background-color: #333;
+}
+
+.sort-type-option.selected {
+    background-color: #444;
+}
+
+.files {
+    padding: 0 5px 50px;
+    overflow-y: scroll;
+}
+
+.files.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(---single-file-size), 1fr));
+}
+
+.files.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.small {
+    ---single-file-size: 147px;
+}
+
+.medium {
+    ---single-file-size: 200px;
+}
+
+.big {
+    ---single-file-size: 250px;
+}
+
+.file {
+    position: relative;
+    padding: 10px 10px 0;
+    text-align: center;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.files.compact > .file {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.file > .selection {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    opacity: 0.95;
+    background-color: #444;
+    border: #888 1px solid;
+    visibility: hidden;
+}
+
+.easy-selection > .file > .selection {
+    visibility: visible;
+}
+
+.file > .preview {
+    text-align: left;
+    white-space: pre-line;
+    background-color: #282828;
+
+    padding: 6px 10px;
+    border-radius: 10px;
+
+    height: calc(var(---single-file-size) * 1.4);
+    min-height: 60px;
+
+    overflow: hidden;
+    color: white;
+
+    cursor: pointer;
+}
+
+.compact .preview {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    height: 80px;
+    font-size: 0.6rem;
+}
+
+.file > .preview > pre {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.file > .name {
+    word-wrap: break-word;
+    font-weight: 600;
+    padding: 4px 3px 0px;
+    line-height: 1.4;
+}
+
+.compact .name {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    text-align: start;
+    align-self: flex-end;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    min-width: 0;
+    word-wrap: normal;
+    overflow-x: hidden;
+}
+
+.file > .date {
+    color: #777;
+    font-size: 0.8rem;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 6px;
+    height: 20px;
+}
+
+.compact .date {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    justify-content: start;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+.file > .date > svg {
+    width: 15px;
+    color: #888;
+}
+
+.empty-files {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    padding-top: 20px;
+}
+
+.heading {
+    font-size: 1.6rem;
+    color: #bbb;
+}
+
+.sub {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #777;
+}
+
+.prev-searches {
+    padding: 10px 40px 10px;
+    color: #aaa;
+}
+
+.search-history {
+    padding: 0 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-queue {
+    cursor: pointer;
+    background-color: #282828;
+    padding: 16px 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 20px;
+}
+
+.remove-button > svg {
+    height: 15px;
+}
+
+.selection-menu {
+    background-color: #111;
+    padding: 10px;
+
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: 200ms;
+}
+
+.selection-menu.open {
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.selection-menu-wrapper {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 400px) {
+    .selection-menu-wrapper {
+        padding: 0;
+    }
+}
+
+.selection-menu-wrapper > button {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 10px;
+    gap: 4px;
+
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.selection-menu-wrapper > button > svg {
+    height: 30px;
+}
+
+@media screen and (min-width: 700px) {
+    .selection-menu {
+        left: auto;
+        border-top-left-radius: 20px;
+        border-left: 1px solid #333;
+        border-top: 1px solid #333;
+    }
+
+    .selection-menu-wrapper {
+        flex-direction: column;
+
+        padding: 0;
+    }
+
+    .selection-menu-wrapper > button {
+        padding: 10px 0px;
+    }
+}
+
+.new-file {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background-color: #444;
+    color: #888;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 26px 0px rgba(0, 0, 0, 0.49);
+}
+
+.new-file > svg {
+    width: 45%;
+    height: 45%;
+}
+
+.file-editor {
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    left: -100%;
+
+    transition: right 300ms ease-in-out, left 350ms ease-in-out, opacity 0ms 350ms, visibility 0ms 400ms;
+
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-editor.open {
+    transition: right 350ms ease-in-out, left 300ms ease-in-out, opacity 0ms 0ms, visibility 400ms 0ms;
+    right: 0%;
+    left: 0%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.file-editor > header {
+    padding: 8px 10px 8px 3px;
+    border-bottom: 1px solid #444;
+    position: sticky;
+    top: 0px;
+    transition: 400ms;
+    background-color: #111;
+    gap: 4px;
+}
+
+.file-editor > .textarea-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.file-editor > .textarea-wrapper > textarea {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    padding: 4px 10px;
+    background-color: #282828;
+    border: none;
+    resize: none;
+    width: 100%;
+}
+
+.file-editor > .textarea-wrapper > textarea:focus {
+    outline: none;
+}
+
+.expanded {
+    padding-bottom: 64px !important;
+}
+
+.go-back {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+
+    transition: 400ms;
+}
+
+.expanded > .go-back {
+    transform: rotate(90deg);
+}
+
+.name-input {
+    position: relative;
+    background-color: transparent;
+    border: none;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex: 1 1 100px;
+
+    top: 0px;
+    right: 0px;
+    transition: 400ms;
+}
+
+.expanded > .name-input {
+    top: 30px;
+    right: 30px;
+}
+
+.name-input:focus {
+    outline: none;
+}
+
+.favourite {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    height: 20px;
+
+    width: 0px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms;
+}
+
+.expanded > .favourite {
+    width: 20px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.folders {
+    position: absolute;
+    bottom: 13px;
+    left: 14px;
+    color: #999;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 200ms;
+    font-weight: 600;
+
+    display: flex;
+    gap: 6px;
+}
+
+.expanded > .folders {
+    visibility: visible;
+    opacity: 1;
+}
+
+.creation-date {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+    color: #999;
+    font-size: 0.8em;
+    font-weight: 600;
+
+    transition: 150ms;
+}
+
+.expanded > .creation-date {
+    transition: 400ms;
+
+    visibility: visible;
+    opacity: 1;
+}
+
+.file-actions {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+
+    display: flex;
+    opacity: 1;
+    gap: 16px;
+
+    visibility: visible;
+
+    transition: 400ms;
+}
+
+.expanded > .file-actions {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.file-actions > * {
+    width: 24px;
+    height: 24px;
+}
+
+.file-actions > * > * {
+    width: 100%;
+    height: 100%;
+}
+
+.folder-selection-modal {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    padding: 15px;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0);
+    transition: 300ms;
+
+    z-index: 1000;
+}
+
+.folder-selection-modal.open {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.folder-selection-modal-wrapper {
+    padding: 20px;
+    border-radius: 14px;
+
+    max-width: 600px;
+    width: 100%;
+
+    background-color: #222;
+
+    border: 1px solid #333;
+
+    transform: translateY(120%);
+    transition: 300ms;
+}
+
+.open .folder-selection-modal-wrapper {
+    transform: translateY(0%);
+}
+
+.folder-selection-modal header {
+    background-color: transparent;
+    border-bottom: 2px solid #777;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.folder-selection {
+    display: flex;
+    flex-direction: column;
+}
+
+.folder-selection > button {
+    display: flex;
+    justify-content: start;
+    gap: 14px;
+
+    padding: 6px 6px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.folder-selection > button > svg {
+    width: 20px;
+    color: #999;
+}
+
+.file-count {
+    margin-left: auto;
+    justify-self: flex-end;
+    color: #777;
+}
+
+.new-folder-background {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+    padding: 15px;
+
+    z-index: 1001;
+
+    visibility: hidden;
+    transform: translateY(120%);
+    transition: 300ms;
+}
+
+.new-folder-background.open {
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.new-folder-modal {
+    padding: 20px 14px;
+    border-radius: 14px;
+
+    max-width: 400px;
+    width: 100%;
+
+    background-color: #222;
+
+    border: 1px solid #333;
+}
+
+.folder-name-input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.folder-name-input:focus {
+    outline: none;
+}
+
+.color-selection > header {
+    display: block;
+    text-align: left;
+
+    padding-bottom: 4px;
+
+    background-color: transparent;
+
+    border-top: 2px solid #888;
+    margin-top: 6px;
+
+    color: #666;
+    font-weight: 500;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 6px min(4vw, 20px);
+}
+
+.options > button {
+    border-radius: 50%;
+    width: 70%;
+    aspect-ratio: 1 / 1;
+    place-self: center;
+}
+
+.options > button.selected::before {
+    content: "\2714";
+    position: absolute;
+    color: black;
+}
+
+.options > button.selected::after {
+    content: "\2714";
+    position: absolute;
+}
+
+.new-folder-modal > button {
+    background-color: #333;
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 8px 0px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
